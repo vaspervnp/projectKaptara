@@ -1,4 +1,4 @@
-
+  
 ;Firmware macros
 
 CLS equ 0xBC14
@@ -44,8 +44,10 @@ cBrightYellow equ 24
 cPastelYellow equ 25
 cBrightWhite equ 26
 
-
     org  0x4000     ; start of code
+
+
+    
 Start:
     ld  a,1		; graphics mode
     call 0xbc0e		; SCR_SET_MODE
@@ -98,10 +100,30 @@ Loop1:
     call TXT_GET_WINDOW
     call TXT_CLEAR_WINDOW
     call Intro2
+    ;call CLS
+    ;ld bc,0x0120		;X byte 1 - Y line 20
+    ;call GetScreenPos
+    ;ld de,ltA
+    ;Call BitmapAgain
    
+
 Loop:
         call TestForQuitOrSkip
-    	jp loop        ; infinite loop
+    	jp loop        ; infinite 
+        
+        
+BitmapAgain:
+	ld a,(de)
+	Call SetScrByteBW ;Draw a letter A
+	Call SetScrByteBW ;Draw a letter A
+	Call SetScrByteBW ;Draw a letter A
+	inc de
+	call GetNextLine	;Move down a line
+	or a			        
+        jp nz,BitmapAgain	;Keep writing until we
+        di
+        ret
+        
 
 Done:
 	call 0x0000
@@ -201,6 +223,7 @@ DOINIT:
 SHUTDOWN:
 	ret
         
+include "helperFunctions.inc"
         
 
 PalData:
@@ -224,4 +247,12 @@ tempMem:
      	db 0
 KeepA: db 0
 keepC: db 0
-testD: db 0
+ltA: 
+	db 00011100b		;Here is a letter A in Bits
+	db 00100110b
+	db 01000011b
+	db 01000011b
+	db 01111111b
+	db 01000011b
+	db 01000011b
+	db 00000000b
