@@ -76,13 +76,6 @@ Loop1:
     ld	hl,ImgData  ; HL = image data
     ld 	bc,0x4000   ; BC = # of bytes   
     ldir            ; copy
-    ;ld hl, KeysPos
-    ;push hl
-    ;call Locate 
-    ;ld hl, KeyPresses
-    ;call PrintIntro
-    ;ld a,1
-    ;call TXT_SET_BACK
     call Intro
     ld hl, IntroPos
     push hl
@@ -209,33 +202,7 @@ SHUTDOWN:
 	ret
         
         
-SetScrByteBW:
-        ;use a 2 bit bitmap in a common way on all platforms
-        push bc
-        push af
-        and 0xF0	;in 4 color mode we use half the 'character 
-        ld b,a
-        rrca
-        rrca
-        rrca
-        rrca
-        or b
-        ld (hl),a
-        inc hl
-        pop af
-        push af
-        and 0xF	;Do the 2nd half - we have to put it in the following byte.
-        ld b,a
-        rrca
-        rrca
-        rrca
-        rrca
-        or b
-        ld (hl),a
-        inc hl
-        pop af
-        pop bc
-        ret
+
 PalData:
     db $0D,$1A,$10,$19,$00,$00,$00,$00
     db $00,$00,$00,$00,$00,$00,$00,$00
