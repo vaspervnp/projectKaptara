@@ -12,6 +12,7 @@ TXT_CLEAR_WINDOW equ 0xBB6C
 TXT_SET_GRAPHICS equ 0xBB63
 scr_set_border	equ	0xBC38
 TXT_SET_CURSOR equ 0xBB75
+TXT_SET_BACK equ 0xBB9F  ; if a is non zero then text background is transparent
 
 
 ;Colors
@@ -80,6 +81,8 @@ Loop1:
     ;call Locate 
     ;ld hl, KeyPresses
     ;call PrintIntro
+    ;ld a,1
+    ;call TXT_SET_BACK
     call Intro
     ld hl, IntroPos
     push hl
