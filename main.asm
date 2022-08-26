@@ -74,6 +74,7 @@ Loop1:
     dec hl
     djnz Loop1
 ; set image bytes
+    ;call testLetters
     ld	de,0xc000   ; DE = screen
     ld	hl,ImgData  ; HL = image data
     ld 	bc,0x4000   ; BC = # of bytes   
@@ -100,11 +101,14 @@ Loop1:
     call TXT_GET_WINDOW
     call TXT_CLEAR_WINDOW
     call Intro2
-    ;call CLS
-    ;ld bc,0x0120		;X byte 1 - Y line 20
-    ;call GetScreenPos
-    ;ld de,ltA
-    ;Call BitmapAgain
+    call Loop
+    
+testLetters;    
+    call CLS
+    ld bc,0x0120;X byte 1 - Y line 20
+    call GetScreenPos
+    ld de,ltA
+    Call BitmapAgain
    
 
 Loop:
@@ -121,8 +125,8 @@ BitmapAgain:
 	call GetNextLine	;Move down a line
 	or a			        
         jp nz,BitmapAgain	;Keep writing until we
-        di
-        ret
+        ;di
+        ;ret
         
 
 Done:

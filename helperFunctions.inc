@@ -1,5 +1,5 @@
 SetScrByteBW:
-    push bc
+	push bc
 		push af
 			and 11110000b	;in 4 color mode we use half the 'character 
 			ld b,a
@@ -9,7 +9,7 @@ SetScrByteBW:
 			rrca
 			or b
 			ld (hl),a
-			inc l
+			inc hl
 		pop af
 		push af
 			and 00001111b	;Do the 2nd half - we have to put it in the following byte.
@@ -20,10 +20,9 @@ SetScrByteBW:
 			rrca
 			or b
 			ld (hl),a
-			inc l
+			inc hl
 		pop af
 		pop bc
-        
 	
 
 GetScreenPos:
@@ -53,7 +52,7 @@ GetScreenPos:
 
 		;-----YYY	(0-7)  - this part needs to be multiplied by
 	ld a,C			;&0800 and added to the total
-	and 00000111b
+	and 00000111b	
 	rlca			;X8
 	rlca
 	rlca
