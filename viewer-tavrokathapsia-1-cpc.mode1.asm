@@ -11,6 +11,7 @@ TXT_GET_WINDOW equ 0xBB66
 TXT_CLEAR_WINDOW equ 0xBB6C 
 TXT_SET_GRAPHICS equ 0xBB63
 scr_set_border	equ	0xBC38
+TXT_SET_CURSOR equ 0xBB75
 
 
 ;Colors
@@ -95,8 +96,8 @@ Loop1:
     ldir            ; copy
     ld h, 4
     ld d, 36
-    ld l, 7
-    ld e, 15
+    ld l, 21
+    ld e, 23
     call TXT_SET_GRAPHICS
     call TXT_GET_WINDOW
     call TXT_CLEAR_WINDOW
@@ -126,7 +127,7 @@ Locate:
 	push hl
         inc h
         inc l
-        call 0xBB75
+        call TXT_SET_CURSOR
         pop hl
         ret
 
@@ -238,7 +239,7 @@ PalData:
 ImgData:            ; data file
     incbin "tavrokathapsia-1-cpc.mode1.bin"
 KeyPresses: 
-	db '    Press Q to quit, S to skip intro     ',255
+	db '    Press Q to quit, S to skip intro    ',255
 KeyPresses2: 
 	db 'Press Q to quit, S to skip intro',255        
 IntroLines:
