@@ -13,6 +13,7 @@ TXT_SET_GRAPHICS equ 0xBB63
 scr_set_border	equ	0xBC38
 TXT_SET_CURSOR equ 0xBB75
 TXT_SET_BACK equ 0xBB9F  ; if a is non zero then text background is transparent
+SCR_SET_MODE equ 0xbc0e
 
 
 ;Colors
@@ -50,7 +51,7 @@ cBrightWhite equ 26
     
 Start:
     ld  a,1		; graphics mode
-    call 0xbc0e		; SCR_SET_MODE
+    call SCR_SET_MODE		; SCR_SET_MODE
     call CLS
 ; set border color
     ld  hl,PalData
@@ -109,6 +110,11 @@ testLetters;
     call GetScreenPos
     ld de,ltA
     Call BitmapAgain
+    
+StartGameLoop:
+	
+	
+	jp StartGameLoop
    
 
 Loop:
@@ -177,8 +183,11 @@ StartGame:
 	;ld  hl, 0x0
         ld  b,cBlack
     	ld  c,b
-    	call scr_set_border	
-	call Loop  
+    	call scr_set_border
+        ld  a,0
+        call SCR_SET_MODE; SCR_SET_MODE
+        call CLS
+        call StartGameLoop  
  	
         
 delayAndNext:
