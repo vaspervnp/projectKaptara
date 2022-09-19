@@ -189,10 +189,18 @@ StartGame:
         ld  a,0
         call SCR_SET_MODE; SCR_SET_MODE
         call CLS
+        Ld b,160   ;Y-Start
+        ld ixh,20	;Width
+        ld IXL,70-1	;X-Righthandside
         call SpriteBull_Setup
         call RLE_Draw
         di
-        halt
+        ;Ld b,160   ;Y-Start
+        ;ld ixh,20	;Width
+        ;ld IXL,30-1	;X-Righthandside
+        ;call SpriteBull_Setup
+        ;call RLE_Draw
+        ;di
         call StartGameLoop  
  	
 	include "cpc_rle.inc"
@@ -247,9 +255,7 @@ SHUTDOWN:
 SpriteBull_Setup:
      ld hl,SpriteBull_Start-1
      ld de,SpriteBull_End-1
-     ld b,0   ;Y-Start
-     ld ixh,20	;Width
-     ld IXL,30+20-1	;X-Righthandside
+
      ret
      
 Palette:
