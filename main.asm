@@ -10,7 +10,7 @@ KeysPos equ 0x0015
 TXT_GET_WINDOW equ 0xBB66   
 TXT_CLEAR_WINDOW equ 0xBB6C 
 TXT_SET_GRAPHICS equ 0xBB63
-scr_set_border	equ	0xBC38
+SCR_SET_BORDER	equ	0xBC38
 TXT_SET_CURSOR equ 0xBB75
 TXT_SET_BACK equ 0xBB9F  ; if a is non zero then text background is transparent
 SCR_SET_MODE equ 0xbc0e
@@ -57,7 +57,7 @@ Start:
     ld  hl,PalData
     ld  b,(hl)
     ld  c,b
-    call 0xbc38		; SCR_SET_BORDER
+    call SCR_SET_BORDER		; SCR_SET_BORDER
     ld  b,0x10		; loop counter
 ; read palette from memory
     ld  hl,PalData+15
