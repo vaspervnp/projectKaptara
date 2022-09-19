@@ -45,8 +45,10 @@ cBrightYellow equ 24
 cPastelYellow equ 25
 cBrightWhite equ 26
 
-    org  0x4000     ; start of code
 
+
+
+    org  0x4000     ; start of code
 
     
 Start:
@@ -187,8 +189,14 @@ StartGame:
         ld  a,0
         call SCR_SET_MODE; SCR_SET_MODE
         call CLS
+        call SpriteBull_Setup
+        call RLE_Draw
+        di
+        halt
         call StartGameLoop  
  	
+	include "cpc_rle.inc"
+
         
 delayAndNext:
 	call TestForQuitOrSkip
@@ -236,7 +244,34 @@ DOINIT:
 SHUTDOWN:
 	ret
         
+SpriteBull_Setup:
+     ld hl,SpriteBull_Start-1
+     ld de,SpriteBull_End-1
+     ld b,0   ;Y-Start
+     ld ixh,20	;Width
+     ld IXL,30+20-1	;X-Righthandside
+     ret
+     
+Palette:
+    defw 0x0000 ;0  -GRB
+    defw 0x0080 ;1  -GRB
+    defw 0x0800 ;2  -GRB
+    defw 0x0880 ;3  -GRB
+    defw 0x0008 ;4  -GRB
+    defw 0x0088 ;5  -GRB
+    defw 0x0808 ;6  -GRB
+    defw 0x0CCC ;7  -GRB
+    defw 0x0888 ;8  -GRB
+    defw 0x00F0 ;9  -GRB
+    defw 0x0F00 ;10  -GRB
+    defw 0x0FF0 ;11  -GRB
+    defw 0x000F ;12  -GRB
+    defw 0x00FF ;13  -GRB
+    defw 0x0F0F ;14  -GRB
+    defw 0x0FFF ;15  -GRB     
+        
 include "helperFunctions.inc"
+
         
 
 PalData:
