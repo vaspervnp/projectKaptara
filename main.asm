@@ -189,7 +189,14 @@ StartGame:
         ld  a,0
         call SCR_SET_MODE; SCR_SET_MODE
         call CLS
-        Ld b,160   ;Y-Start
+        ;Palette Start
+        ld hl, Palette
+        ld b, 17
+        
+        
+        ;Palette End
+        
+        ld b,160   ;Y-Start
         ld ixh,20	;Width
         ld IXL,70-1	;X-Righthandside
         call SpriteBull_Setup
@@ -278,8 +285,7 @@ Palette:
         
 include "helperFunctions.inc"
 
-        
-
+       
 PalData:
     db $0D,$1A,$10,$19,$00,$00,$00,$00
     db $00,$00,$00,$00,$00,$00,$00,$00
@@ -327,3 +333,16 @@ SpriteBull_Start:
       db 0x3,0xC9,0x1,0xC2,0xF4,0xF,0x3,0xC4,0x4,0xC6,0x2,0xC2,0xF3,0xF,0x14,0xC2
       db 0xF2,0xF,0x6D
 SpriteBull_End:
+
+CPCPalette_Map:
+	db 0x54,0x44,0x55
+        db 0x5c,0x58,0x5D
+        db 0x4C,0x45,0x4D
+        
+        db 0x56,0x46,0x57
+        db 0x5E,0x40,0x5F
+        db 0x4E,0x47,0x4F
+        
+        db 0x52,0x42,0x53
+        db 0x5A,0x59,0x5B
+        db 0x4A,0x43,0x4B
