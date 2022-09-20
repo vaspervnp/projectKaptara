@@ -80,3 +80,74 @@ GetNextLine:
 GetNextLineDone:
                 pop af
                 ret        
+                
+SetPalette:		;-GRB
+		ld c,a
+		ld b,0x7f
+		push bc
+			ld a,l
+			and 11110000b
+			call CPCcolconv
+			ld b,a	 				;R
+			ld a,l
+			and 00001111b  			;B
+			call CPCcolconvR
+			ld l,a
+			ld a,h					;G
+			and 00001111b
+			call CPCcolconvR
+			ld h,a
+			xor a
+			add h					;Add Green x9
+			add h
+			add h
+			add h
+			add h
+			add h
+			add h
+			add h
+			add h
+			add b					;Add Red x3
+			add b
+			add b
+			add l					;Add Blue x1
+			ld b,0
+			ld c,a
+			ld hl,CpcPalette_Map
+			add hl,bc
+			ld a,(hl)
+		pop bc
+		out (c),c               
+		out (c),a
+	ret
+CPCcolconvR:			;We need to shift the Red color bits
+	rrca
+	rrca
+	rrca
+	rrca
+CPCcolconv:				;We need to limit our returned value to 0,1 or 2
+	cp 0x50
+	jr c,CPCcolconv0	
+	cp 0xA0
+	jr c,CPCcolconv1
+	ld a,2
+	ret
+CPCcolconv0:	
+	xor a
+	ret
+CPCcolconv1:	
+	ld a,1
+	ret                
+
+CPCPalette_Map:
+	db 0x54,0x44,0x55
+        db 0x5C,0x58,0x5D
+        db 0x4C,0x45,0x4D
+        
+        db 0x56,0x46,0x57
+        db 0x5E,0x40,0x5F
+        db 0x4E,0x47,0x4F
+        
+        db 0x52,0x42,0x53
+        db 0x5A,0x59,0x5B
+        db 0x4A,0x43,0x4B
