@@ -17,10 +17,10 @@ Game Environment: Flip-screen
 
 Characters
 ====
-- Player Character:
-A young female bull-leaper
+Player Character: A young female bull-leaper
 
-- NPCs:
+NPCs
+=
 * dfg
 * 
 
