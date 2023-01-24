@@ -11,7 +11,7 @@ Alas, the sacred bull, the star of the festival and the bull-leaping event, has 
 
 Game Basics
 ====
-* Genre: Platform
+- Genre: Platform
 - Mode: Single-player
 - Game Environment: Flip-screen
 - Initial Release for: Amstrad CPC 6128
@@ -24,14 +24,45 @@ Game Basics
 
 Characters
 ====
-Player Character: A young female bull-leaper
+- Player Character: A young female bull-leaper
+- NPCs:
+  - The High Priestess
+  - Minoan Scribe
+  - Phoenician Merchant
+  - Egyptian Emissary
+  - Sage
+  - Townsman #1
+  - Townsman #2
+  - Townswoman #1
+  - Townswoman #2
+  - Alley Cat
+- Monsters:
+  - Snake
+  - Scorpion
+  - Wolf
+  - Wild Boar
+  - Spider
+  - Bat
+  - Ibex
+  - Spider
+  - Evil Eyes
+  - Bird of Prey
+- Enemies (Human Hostile Characters):
+  - Bandit #1
+  - Bandit #2
+  - Achaean Mercenary
 
-NPCs:
-- The High Priestess
--  
+Game Locales
+====
+- Palace
+- Town
+- Harbor
+- Forest
+- Mountain
+- Caves
+- Mines
 
-
-Player Character Actions:
+Player Character Actions
 - Idle
 - Walk (left-right)
 - Jump
