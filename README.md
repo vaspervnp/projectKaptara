@@ -11,18 +11,24 @@ Alas, the sacred bull, the star of the festival and the bull-leaping event, has 
 
 Game Basics
 ====
-Genre: Platform
-Mode: Single-player
-Game Environment: Flip-screen
+* Genre: Platform
+- Mode: Single-player
+- Game Environment: Flip-screen
+- Initial Release for: Amstrad CPC 6128
+- Graphics: Mixed-mode (Mode 0 & Mode 1), up to 16 colors on-screen
+- Aspect ratio(s):
+  - 4:3 (overall)
+  - 16:10 (action window)
+- Sound: AY-3-8910 (initially)
+- Controls: keyboard, joystick
 
 Characters
 ====
 Player Character: A young female bull-leaper
 
-NPCs
-=
-* dfg
-* 
+NPCs:
+- The High Priestess
+-  
 
 
 Player Character Actions:
