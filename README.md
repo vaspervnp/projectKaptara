@@ -17,6 +17,14 @@ Game Environment: Flip-screen
 
 Characters
 ====
+- Player Character:
+A young female bull-leaper
+
+- NPCs:
+* dfg
+* 
+
+
 Player Character Actions:
 - Idle
 - Walk (left-right)
