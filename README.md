@@ -9,13 +9,15 @@ Around 3800 years ago, on the great island we now know as Crete, preparations fo
 
 Alas, the sacred bull, the star of the festival and the bull-leaping event, has fallen gravely ill. Now, you, the most capable of the bull-leapers, must travel across the island to collect the ingredients and implements the High Priestess needs to prepare the cure for the bull in time for the ceremonies. Your journey will take you through lavish palaces, mystical caves, lush forests, and dark mines, in an adventure full of challenges and obstacles!
 
+Game Basics
 ====
-
 Genre: Platform
 Mode: Single-player
 Game Environment: Flip-screen
 
-Character Actions:
+Characters
+====
+Player Character Actions:
 - Idle
 - Walk (left-right)
 - Jump
@@ -29,3 +31,6 @@ Character Actions:
 - Sustain Damage (lose energy)
 - Death
 - Replenish Energy
+
+
+
