@@ -64,7 +64,7 @@ Game Locales
 
 Player Character
 ====
--Actions:
+- Actions:
   - Idle
   - Walk (left-right)
   - Jump
