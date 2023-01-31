@@ -18,7 +18,7 @@ Game Basics
 - Graphics: Mixed-mode (Mode 0 & Mode 1), up to 16 colors on-screen
 - Aspect ratio(s):
   - 4:3 (overall)
-  - 16:10 (action window)
+  - 16:9 (action window)
 - Sound: AY-3-8910 (initially)
 - Controls: keyboard, joystick
 
