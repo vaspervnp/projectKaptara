@@ -103,9 +103,7 @@ Player Character
   - Vertical
   - Diagonal (see Opera Soft's "Goody")
   - Jumping allows the character to dodge projectiles flying below her waist
-  - Jump height depends on how long the relevant button / key is depressed before being released;
-    - Basic jump: half Player Character height
-    - High jump: 1 Player Character height
+  - Jump height: 1 Player Character height 
 
 - Climb:
   - Up or Down
