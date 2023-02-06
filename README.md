@@ -64,6 +64,9 @@ Game Locales
 
 Player Character
 ====
+- Size relevant to Action Window height:
+  - Approximately 13% of Action Window height (similarly to Goody and Livingstone Supongo)
+
 - Actions:
   - Idle
   - Walk (left-right)
