@@ -24,6 +24,7 @@ Game Basics
   - 16:10 (action window)
 - Sound: AY-3-8910 (initially)
 - Controls: keyboard, joystick
+-
 
 
 
