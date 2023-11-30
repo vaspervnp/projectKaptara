@@ -26,5 +26,3 @@ Game Basics
 - Controls: keyboard, joystick
 -
 
-
-
